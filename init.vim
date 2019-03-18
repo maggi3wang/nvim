@@ -14,6 +14,8 @@ endif
 call plug#begin('~/.config/nvim/plugged')                                                                                             
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 "--------------------------------------
@@ -32,6 +34,8 @@ set showcmd                           " Show command in bottom bar
 set cursorline                        " Highlight current lineii
 set showmatch                         " Show matching braces
 set hlsearch                          " Highlight the last used search pattern
+set incsearch                         " Show search matches as you type
+set history=1000                      " Remember more commands and search history
 filetype indent on
 
 "--------------------------------------
@@ -60,6 +64,8 @@ autocmd VimEnter * wincmd w
 "--------------------------------------
 "|         Plugin Customization       |
 "--------------------------------------
+let g:airline_theme='dracula'
+
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
