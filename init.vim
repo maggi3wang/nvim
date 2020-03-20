@@ -52,6 +52,17 @@ let g:vimtex_fold_manual = 1
 let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-pdflatex="xelatex --shell-escape %O %S"',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ]
+    \}
+
 let g:vimtex_view_method = "skim"
 let g:vimtex_view_general_viewer
 		\ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
@@ -116,6 +127,19 @@ autocmd VimEnter * wincmd w
 "--------------------------------------
 let g:airline_theme='dracula'
 
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" nerdtree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd! StdinReadPre * let s:std_in=1
+autocmd! BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeShowHidden=1
+let g:NERDTreeShowIgnoredStatus=1
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+
+" nerdtree-tabs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:nerdtree_tabs_open_on_console_startup=1
+
+
