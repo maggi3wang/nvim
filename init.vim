@@ -15,12 +15,12 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'KeitaNakamura/tex-conceal.vim'
+Plug 'tmux-plugins/tpm'
 call plug#end()
 
 "--------------------------------------
@@ -43,7 +43,10 @@ set hlsearch                          " Highlight the last used search pattern
 set incsearch                         " Show search matches as you type
 set history=1000                      " Remember more commands and search history
 set updatetime=100                    " Reducing updatetime for GitGutter to 100ms
+set clipboard+=unnamedplus            " Enabling cp btwn files
 filetype indent on
+
+set mouse=a
 
 let g:tex_flavor  = 'latex'
 let g:vimtex_quickfix_mode=0
@@ -116,16 +119,19 @@ map <Leader>n :NERDTreeToggle<CR>
 "--------------------------------------
 
 " Open up NERDTree by default
-" autocmd VimEnter * NERDTree
+autocmd VimEnter * NERDTree
 " Make tabs contain mirrored NERDTree
-" autocmd BufWinEnter * NERDTreeMirror
+autocmd BufWinEnter * NERDTreeMirror
 " Set window to file opened, not NERDTree
 autocmd VimEnter * wincmd w
 
 "--------------------------------------
 "|         Plugin Customization       |
 "--------------------------------------
-let g:airline_theme='dracula'
+" colorscheme dracula
+" let g:airline_theme='dracula'
+" set -g @plugin 'sei40kr/tmux-airline-dracula'
+
 
 " nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -137,6 +143,8 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
+
+set modifiable
 
 " nerdtree-tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
