@@ -21,6 +21,11 @@ Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'KeitaNakamura/tex-conceal.vim'
 Plug 'tmux-plugins/tpm'
+Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
 call plug#end()
 
 "--------------------------------------
